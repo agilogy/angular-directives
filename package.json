@@ -1,0 +1,21 @@
+{
+  "author": "Agilogy SL",
+  "name": "angular-directives",
+  "version": "0.0.1",
+  "homepage": "http://www.agilogy.es",
+  "licenses": {
+    "type": "MIT",
+    "url": "http://www.agilogy.es"
+  },
+  "bugs": "http://www.agilogy.es",
+  "dependencies": {
+    "express": "3.1.x"
+  },
+  "devDependencies": {
+    "express": "3.1.x"
+  },
+  "engines":{
+    "node": "~0.10.13",
+    "npm": "~1.3.2"
+  }
+}
