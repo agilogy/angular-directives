@@ -24,6 +24,10 @@
 
 <body>
   <div class="container-fluid">
+    <h1>Angular directives</h1>
+    <div class="row-fluid">
+      Code available at: <a href="https://github.com/agilogy/angular-directives" target="_blank">https://github.com/agilogy/angular-directives</a>
+    </div>
   	<div class="row-fluid">
       <h2>Directive for reusable bar chart</h2>
       <div class="span5">
@@ -78,9 +82,13 @@
   <div class="row-fluid">
     <div class="input span3">
       <label>monetary amount</label>
-      <input name="exampleInput" type="text" ng-model="currencyExample.amount"> 
+      <input type="text" ng-model="currencyExample.amount"> 
+      <input type="text" ng-model="currencyExample.currency"> 
     </div>
-    <span class="span4">{{currencyExample | monetaryAmount}}</span>
+    <div class="span4">
+      <label>monetary amount</label>
+      <span>{{currencyExample | monetaryAmount}}</span>
+    </div>
     <pre class="span4">{{currencyExample | json}}</pre>
   </div>
 </div>
