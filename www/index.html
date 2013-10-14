@@ -1,26 +1,33 @@
 <!DOCTYPE html>
-<html ng-app="agilogyDirectives">
+<html ng-app="agilogyDirectives" ng-controller="AppCtrl">
 <head>
   <meta charset="UTF-8">
   <title>Agilogy Directives</title>
 
   
-  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/2.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
   
-<!--  
-
-  <script src="scripts/directives/bars.js"></script>
+  <script src="scripts/directives/bars/barChartDirective.js"></script>
   <script src="scripts/app.js"></script>
--->
+  
   
 </head>
 
 <body>
-  <section>
-    <h1>Directive for reusable bar chart</h1>
-  </section>
+  <div class="container-fluid">
+  	<div class="row-fluid">
+    <h2>Directive for reusable bar chart</h2>
+    <div class="span5">
+    	<bar-chart block-width="25" label-width="132" h="26" x="0" y="0" results="testResults" predicate="predicate" title="'RESULTS'"></bar-chart>
+    </div>
+    <div class="span5">
+    	<bar-chart block-width="25" label-width="132" h="26" x="0" y="0" results="testResults" predicate="predicate" title="'RESULTS'"></bar-chart>
+    </div>
+	</div>
+  </div>
 
 </body>
 </html>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="600">
+	<g>
+		<text x="0" ng-attr-y="{{y + 10}}" fill="#878787" font-family="'ArialMT'" font-size="11">{{title}}</text>
+	</g>
+	<g ng-repeat="item in list | orderBy:predicate">
+	
+		<rect class="chart-label" ng-attr-x="0" ng-attr-y="{{y + $index * (h + 6) + 20}}" ng-attr-width="{{labelWidth}}" ng-attr-height="{{h}}" fill="#E7E7E7"></rect>
+
+		<switch>
+			<foreignObject ng-attr-x="0" ng-attr-y="{{y + $index * (h + 6) + 20}}" ng-attr-width="{{labelWidth}}" ng-attr-height="{{h}}">
+				<p style="padding:{{(h-16)/2}}px 4px" xmlns="http://www.w3.org/1999/xhtml" popover-position="right" popover-title="¿Qué es?" popover="Descripción del vector o competencia" popover-trigger="mouseenter">{{item.name}}</p>
+			</foreignObject>
+		</switch>
+		
+		<rect ng-repeat="n in [] | range:12" 
+		ng-attr-class="{{{0: 'light-blue', 1: 'light-green', 2: 'light-orange'}[floor((item.id - 1)/ (list.length/3))]}}" 
+		ng-attr-x="{{labelWidth + 4 + $index * (blockWidth + 1)}}" ng-attr-y="{{y + $parent.$index * (h + 6) + 20}}" ng-attr-width="{{blockWidth}}" ng-attr-height="{{h}}"></rect>
+		
+		<rect ng-attr-class="{{{0: 'dark-blue', 1: 'dark-green', 2: 'dark-orange'}[floor((item.id - 1)/ (list.length/3))]}}" ng-attr-x="{{labelWidth + 4}}" ng-attr-y="{{y + $index * (h + 6) + 20}}" ng-attr-width="{{item.value * (blockWidth + 1)}}" ng-attr-height="{{h}}"></rect>
+		
+		<text class="chart-value-amount" ng-attr-x="{{labelWidth + 8 + (12 * (blockWidth + 1))}}" ng-attr-y="{{y + $index * (h + 6) + (h / 2) + 4 + 20}}" fill="#747474" font-family="'ArialMT'" font-size="11">{{item.value}}</text>
+	</g>
+</svg>
