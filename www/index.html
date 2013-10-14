@@ -21,10 +21,18 @@
   	<div class="row-fluid">
     <h2>Directive for reusable bar chart</h2>
     <div class="span5">
-    	<bar-chart block-width="25" label-width="132" h="26" x="0" y="0" results="testResults" predicate="predicate" title="'RESULTS'"></bar-chart>
+    	<bar-chart block-width="25" label-width="132" h="26" x="0" y="0" results="testResults[0]" predicate="predicate" title="'RESULTS'"></bar-chart>
     </div>
     <div class="span5">
-    	<bar-chart block-width="25" label-width="132" h="26" x="0" y="0" results="testResults" predicate="predicate" title="'RESULTS'"></bar-chart>
+    	<bar-chart block-width="25" label-width="132" h="26" x="0" y="0" results="testResults[1]" predicate="predicate2" title="'RESULTS'"></bar-chart>
+    </div>
+    <div class="span5">
+    	<button class="btn" ng-click="predicate = '-value'">ASC</button>
+    	<button class="btn" ng-click="predicate = 'value' ">DESC</button>
+    </div>
+    <div class="span5">
+    	<button class="btn" ng-click="predicate2 = '-value'">ASC</button>
+    	<button class="btn" ng-click="predicate2 = 'value' ">DESC</button>
     </div>
 	</div>
   </div>
