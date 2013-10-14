@@ -8,9 +8,15 @@
   <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/2.3.0/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+  <script src="//codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>  
   
   <script src="scripts/directives/bars/barChartDirective.js"></script>
+  <script src="scripts/directives/modal/ngModal.js"></script>
+  <script src="scripts/directives/lines/lines.js"></script>
+
+  <script src="scripts/filters/filters.js"></script>
   <script src="scripts/app.js"></script>
   
   
@@ -19,23 +25,65 @@
 <body>
   <div class="container-fluid">
   	<div class="row-fluid">
-    <h2>Directive for reusable bar chart</h2>
-    <div class="span5">
-    	<bar-chart block-width="25" label-width="132" h="26" x="0" y="0" results="testResults[0]" predicate="predicate" title="'RESULTS'"></bar-chart>
-    </div>
-    <div class="span5">
-    	<bar-chart block-width="25" label-width="132" h="26" x="0" y="0" results="testResults[1]" predicate="predicate2" title="'RESULTS'"></bar-chart>
-    </div>
-    <div class="span5">
-    	<button class="btn" ng-click="predicate = '-value'">ASC</button>
-    	<button class="btn" ng-click="predicate = 'value' ">DESC</button>
-    </div>
-    <div class="span5">
-    	<button class="btn" ng-click="predicate2 = '-value'">ASC</button>
-    	<button class="btn" ng-click="predicate2 = 'value' ">DESC</button>
-    </div>
-	</div>
+      <h2>Directive for reusable bar chart</h2>
+      <div class="span5">
+       <bar-chart block-width="25" label-width="132" h="26" x="0" y="0" results="testResults[0]" predicate="predicate" title="'RESULTS'"></bar-chart>
+     </div>
+     <div class="span5">
+       <bar-chart block-width="25" label-width="132" h="26" x="0" y="0" results="testResults[1]" predicate="predicate2" title="'RESULTS'"></bar-chart>
+     </div>
+     <div class="span5">
+       <button class="btn" ng-click="predicate = '-value'">ASC</button>
+       <button class="btn" ng-click="predicate = 'value' ">DESC</button>
+     </div>
+     <div class="span5">
+       <button class="btn" ng-click="predicate2 = '-value'">ASC</button>
+       <button class="btn" ng-click="predicate2 = 'value' ">DESC</button>
+     </div>
+   </div>
+   <hr />
+   <h2>Bootstrap modal with transclusion</h2>
+   <div class="row-fluid">
+
+    <button type="button" class="btn btn-primary" ng-click="showModal()">Show modal</button>
+    <ng-modal id="modal-example" header="'Example modal'" close-btn="'true'" data-width="600">
+      <form name="exampleform" id="exampleform" ng-submit="submitFormExample()">
+        <div class="input">
+          <label>Some input</label>
+          <input name="exampleInput" type="text" ng-model="exampleInput" required> 
+        </div>
+        <button type="submit" class="btn btn-primary" form="exampleform" ng-disabled="!exampleform.$valid">Save</button>       
+      </form>
+    </ng-modal>
   </div>
+  <hr />
+  <h2>Example directive with transformers / parsers</h2>
+  <div class="row-fluid">
+
+    <div class="span6">
+      <form class="span12">
+        <fieldset>          
+          <label>linesExample</label>
+          <textarea lines ng-model="linesExample" rows="6" class="span12"></textarea>
+        </fieldset>
+      </form>
+    </div>
+    <div class="span6">
+      <label>linesExample</label>
+      <pre >{{linesExample | json}}</pre>
+    </div>
+  </div>
+  <hr />
+  <h2>Filter to render currency json objects</h2>
+  <div class="row-fluid">
+    <div class="input span3">
+      <label>monetary amount</label>
+      <input name="exampleInput" type="text" ng-model="currencyExample.amount"> 
+    </div>
+    <span class="span4">{{currencyExample | monetaryAmount}}</span>
+    <pre class="span4">{{currencyExample | json}}</pre>
+  </div>
+</div>
 
 </body>
 </html>

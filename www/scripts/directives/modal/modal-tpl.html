@@ -1,0 +1,16 @@
+<div id class="modal hide fade" data-width>
+  <div class="modal-header">
+    <button ng-if="closeBtn" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>{{header}}</h3>
+  </div>
+  <div ng-transclude class="transcluded">
+
+  </div>
+  <div class="modal-body">
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" ng-if="closeBtn">Cancel·lar</button>
+
+  </div>
+</div>
